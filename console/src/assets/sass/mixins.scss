@@ -37,8 +37,6 @@
             @include ellipsis();
           }
   
-
-  
           .ui-dropdown-panel{
             font-size: 14px;
             height: auto;
@@ -48,27 +46,6 @@
             border-radius: 3px;
             position: relative;
             top: 0 !important;
-            .ui-dropdown-filter-container{
-              height: auto;
-              max-height: 50px;
-              input{
-                padding-left: 6px;
-                background-color: $card-background;
-                height: $dropdown-label-height;
-              }
-              span{
-                top:17px;
-                &.pi{
-                  display: inline-block;
-                  font:normal normal normal 14px/1 FontAwesome;
-                  -webkit-font-smoothing: antialiased;
-                }
-                &.pi-search::before{
-                  content: "\f002";
-                  font-size: 14px;
-                }
-              }
-            }
   
             .ui-dropdown-items-wrapper{
               height: auto;
@@ -188,26 +165,6 @@
               }
             }
           }
-        }
-      }
-  
-      .ui-paginator{
-        height: $table-row-height;
-        display: flex;
-        align-items: center;
-  
-        a:not(.ui-state-disabled):not(.ui-state-active):hover{
-          background: transparent;
-          color : $greyish-text;
-        }
-  
-        .ui-paginator-page{
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
         }
       }
     }

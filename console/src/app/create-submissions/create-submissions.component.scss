@@ -3,6 +3,21 @@
     justify-content: center;
     .main-wrapper{
         width: 50%;
+        .input-element{
+            display: block;
+            position: relative;
+            height: 75px;
+            &:not(:first-child){
+                margin-top: 17px;
+                div{
+                    margin-top: 17px;
+                }
+            }
+            &:last-child{
+                margin-bottom: 17px;
+                
+            }
+        }
         .submit{
             margin-top: 20px;
         }

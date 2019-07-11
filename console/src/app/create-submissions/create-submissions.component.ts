@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsService} from '../forms.service';
 import {Forms} from '../models/forms.model';
-import { Fields } from '../models/fields.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,8 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CreateSubmissionsComponent implements OnInit {
 
-  form:Forms;
-  submissions:object = {};
+  form: Forms;
+  submissions: object = {};
+  errorMessage: string;
   constructor(
     private formsService: FormsService,
     private route: ActivatedRoute,
@@ -23,18 +23,20 @@ export class CreateSubmissionsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.formsService.getFormById(params['id'])
       .subscribe(form => {
-        console.log(form);
-        
         this.form = form;
-      })
-    })
+      });
+    });
   }
 
-  submit(){
-    this.formsService.submitForm(this.form.id,this.submissions)
+  submit() {
+    if (Object.keys(this.submissions).length !== this.form.fields.length) {
+      this.errorMessage = 'This field is mandatory.';
+      return;
+    }
+    this.formsService.submitForm(this.form.id, this.submissions)
     .subscribe(result => {
-      this.router.navigate(['/']);
-    })
+      this.router.navigate(['/', this.form.id]);
+    });
   }
 
 }

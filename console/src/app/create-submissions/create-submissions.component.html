@@ -5,9 +5,9 @@
             <div class="input input-element" >
                 <span class="label">{{field.fieldLabel}}</span>
                 <input type="{{field.inputType}}" [(ngModel)]="submissions[field.fieldLabel]"
-                 [ngClass]="{'error-message':errorMessage, 'error-message-end':!errorMessage}"
+                 [ngClass]="{'error-message':errorMessage && !submissions[field.fieldLabel]}"
                  placeholder="{{field.inputName}}" />
-                <!-- <span class="error" [hidden]="field.fieldLabel" >{{errorMessage}}</span> -->
+                <span class="error" *ngIf="!submissions[field.fieldLabel]" >{{errorMessage}}</span>
             </div>
         </div>
     </div>

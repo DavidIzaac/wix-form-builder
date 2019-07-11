@@ -1,0 +1,6 @@
+@import "mixins";
+
+.table-wrapper {
+    margin-top: 25px;
+    @include table();
+}

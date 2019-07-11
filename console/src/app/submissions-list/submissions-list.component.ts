@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsService} from '../forms.service';
+import { ActivatedRoute } from '@angular/router';
+import {Forms} from '../models/forms.model';
 
 @Component({
   selector: 'app-submissions-list',
@@ -8,9 +10,21 @@ import {FormsService} from '../forms.service';
 })
 export class SubmissionsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private formService: FormsService,
+    private route: ActivatedRoute,
+    ) { }
+  resultCount: number = 0;
+  form: Forms;
+  submissions = [];
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.formService.getFormById(params['id'])
+      .subscribe(form => {
+        this.form = form;
+      });
+    });
   }
 
 }

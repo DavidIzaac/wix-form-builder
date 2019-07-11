@@ -1,3 +1,13 @@
-<p>
-  submissions-list works!
-</p>
+<div class="table-wrapper">
+  <p-dataTable [value]="form?.submissions" [lazy]="true" [totalRecords]="resultCount">
+    <ng-container *ngFor="let field of form?.fields">
+      <p-column field="{{field.fieldLabel}}" header="{{field.fieldLabel}}">
+        <ng-template let-col let-submission="rowData" pTemplate="body">
+          <div class="name-wrapper">
+            <a>{{ submission[field.fieldLabel] }}</a>
+          </div>
+        </ng-template>
+    </p-column>
+    </ng-container>
+  </p-dataTable>
+</div>

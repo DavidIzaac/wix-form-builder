@@ -7,21 +7,21 @@ import {CreateFormComponent} from './create-form/create-form.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:FormListComponent
+    path: '',
+    component: FormListComponent
   },
   {
-    path:'create-form',
-    component:CreateFormComponent
+    path: 'create-form',
+    component: CreateFormComponent
   },
   {
-    path:':id',
-    component:SubmissionsListComponent,
+    path: ':id',
+    component: SubmissionsListComponent,
     pathMatch: 'full',
   },
   {
-    path:':id/submit',
-    component:CreateSubmissionsComponent
+    path: ':id/submit',
+    component: CreateSubmissionsComponent
   }
 ];
 
