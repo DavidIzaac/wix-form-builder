@@ -1,3 +1,5 @@
+# Dependencies
+I suppose that you already have the latest version of mongodb and nodejs (=> 10.x.x ) in your local computer.
 
 # Installation
 1) Clone the repository.
