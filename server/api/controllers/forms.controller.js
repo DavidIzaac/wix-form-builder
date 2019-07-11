@@ -32,7 +32,7 @@ module.exports = {
     },
 
     submit : (req,res)=> {
-        return formsService.submit(req.body.formId,req.body.submissions)
+        return formsService.submit(req.params.id,req.body.submissions)
         .then((result) => {
             return res.json(result);
         })

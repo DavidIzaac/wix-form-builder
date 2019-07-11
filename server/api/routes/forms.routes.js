@@ -6,6 +6,6 @@ const formsController = require("../controllers/forms.controller");
 router.get("/", formsController.list);
 router.get("/:id", formsController.listSubmissions);
 router.post("/", formsController.create);
-router.post("/submit", formsController.submit);
+router.post("/:id", formsController.submit);
 
 module.exports = router;

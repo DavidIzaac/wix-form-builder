@@ -1,10 +1,14 @@
+@import "mixins";
+
+@include dropdown();
+
 .main{
     display: flex;
     justify-content: center;
     flex-direction: column;
     .form{
         display: flex;
-        padding-bottom: 78px;
+        padding-bottom: 45px;
         border-bottom: 1px solid #dadada;
         .create-field{
             width: 50%;
@@ -13,6 +17,8 @@
                 .content{
                     .input-element{
                         display: block;
+                        position: relative;
+                        height: 75px;
                         &:not(:first-child){
                             margin-top: 17px;
                             div{
@@ -21,6 +27,9 @@
                         }
                         &:last-child{
                             margin-bottom: 17px;
+                            .error{
+                                margin-top: 48px;   
+                            }
                         }
                     }
                 }
@@ -41,19 +50,40 @@
                 }
             }
             .content{
+                display: flex;
                 border-bottom: 1px solid #dadada;
+                align-items: center;
+                &:hover{
+                    .hover{
+                        visibility: visible !important;
+                    }
+                }
                 span{
+                    width: 85%;
                     padding: 10px;
                     display: block;
+                }
+                i{
+                    display: block;
+                    cursor: pointer;
+                    &.hover{
+                        visibility: hidden;
+                    }
+
                 }
             }
         }
 
     }
     .create{
-        margin-top: 40px;
-        .form-name{
-            margin-bottom: 17px;
+        display: flex;
+        justify-content: center;
+        .content{
+            width: 50%;
+            margin-top: 40px;
+            .form-name{
+                margin-bottom: 17px;
+            }
         }
     }
 }

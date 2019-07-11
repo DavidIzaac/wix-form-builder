@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path:':id',
-    component:SubmissionsListComponent
+    component:SubmissionsListComponent,
+    pathMatch: 'full',
   },
   {
     path:':id/submit',

@@ -1,4 +1,4 @@
-import { Component, Input , forwardRef, OnInit} from '@angular/core';
+import { Component, Input , forwardRef, OnChanges} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {INPUT_TYPE} from '../../../constants';
 
@@ -14,20 +14,23 @@ import {INPUT_TYPE} from '../../../constants';
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor, OnInit{
+export class InputComponent implements ControlValueAccessor,OnChanges{
 
   @Input() label: string;
   @Input() placeholder: string;
   @Input() type: boolean;
   @Input() isDropDown: boolean = false;
+  @Input() errorMessage: string;
+  
   text: string;
   inputType = INPUT_TYPE;
 
   propagateChange: (_: any) => { };
 
-  ngOnInit(){
-    console.log(this.inputType)
-
+  ngOnChanges(){
+    if(this.text && !(this.errorMessage == 'You need to add a least one field.')){
+      this.errorMessage = null;
+    }
   }
 
 

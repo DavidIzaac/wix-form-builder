@@ -8,7 +8,7 @@ module.exports = {
     },
 
     listSubmissions:(formId) => {
-        return Forms.find({_id:formId}).select("submissions"); 
+        return Forms.findOne({_id:formId}); 
     },
 
     create:(body) => {

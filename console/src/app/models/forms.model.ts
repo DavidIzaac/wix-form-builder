@@ -4,6 +4,7 @@ export class Forms{
   id: string;
   _id?: string;
   name: string;
-  numberOfSubmissions:number;
+  submissions=[];
   fields:Fields[] = [];
+  
 }

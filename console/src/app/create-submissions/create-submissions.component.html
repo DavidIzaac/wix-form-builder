@@ -1,3 +1,22 @@
-<p>
-  create-submissions works!
-</p>
+<div class="main">
+  <div class="main-wrapper">
+    <div class="form">
+        <div class="input" *ngFor="let field of form?.fields">
+            <div class="input input-element" >
+                <span class="label">{{field.fieldLabel}}</span>
+                <input type="{{field.inputType}}" [(ngModel)]="submissions[field.fieldLabel]"
+                 [ngClass]="{'error-message':errorMessage, 'error-message-end':!errorMessage}"
+                 placeholder="{{field.inputName}}" />
+                <!-- <span class="error" [hidden]="field.fieldLabel" >{{errorMessage}}</span> -->
+            </div>
+        </div>
+    </div>
+    <div class="submit">
+        <a (click)="submit()" class="form-button">
+            <span>
+               Submit
+            </span>
+          </a>
+    </div>
+  </div>
+</div>

@@ -13,52 +13,38 @@
         outline:none;
         width: 100%;
         display: inline-block;
+        position: absolute;
         .ui-dropdown{
           width: 100%;
           height: $dropdown-label-height;
           outline:none;
           overflow: visible;
-          &:not(.ui-state-disabled):hover{
-            background-color: $kh-background;
+       
+          .ui-helper-hidden-accessible{
+            display: none
           }
   
           .ui-dropdown-label{
-            font-size: 14px;
-            color: $greyish-text;
+            font-size: 15px;
+            border: 1px solid #dadada;
+            color: gray;
+            font-family: $app-font-family;
             padding-left: 10px;
             display: flex;
             align-items: center;
             height: $dropdown-label-height;
             border-radius: 3px;
-            background-color: $card-background;
             @include ellipsis();
           }
   
-          .ui-dropdown-trigger {
-            margin-right: 10px;
-            .pi{
-              display: inline-block;
-              font:normal normal normal 14px/1 FontAwesome;
-              -webkit-font-smoothing: antialiased;
-            }
-            .pi-chevron-down::before{
-              content: "\f078";
-              font-size: 14px;
-            }
-            .ui-dropdown-trigger-icon{
-              color:white;
-              font-size: inherit;
-              display: flex;
-              align-items: center; 
-            }
-          }
+
   
           .ui-dropdown-panel{
-            border:1px solid $cool-grey;
             font-size: 14px;
             height: auto;
+            border: 1px solid $dropdown-border;
             max-height: 178px;
-            background-color: $dropdown-list-bck;
+            background-color: $dropdown-bck;
             border-radius: 3px;
             position: relative;
             top: 0 !important;
@@ -88,10 +74,8 @@
               height: auto;
               max-height: 138px!important;
               border-radius: 3px;
-              background-color: $dropdown-list-bck;
+              background-color: $dropdown-bck;
               overflow-y: auto;
-              box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
-              border-top:1px solid $dropdown-border;
               width: 100%;
               z-index: 1;
               .ui-dropdown-list{
@@ -100,7 +84,7 @@
   
                 .ui-dropdown-item{
                   height: 30px;
-                  color: $greyish-text;
+                 
                   padding-left: 9px;
                   display: flex;
                   align-items: center;
@@ -110,9 +94,9 @@
                   }
                   // not selected
                   &:not(.ui-state-highlight){
-                    color: $greyish-text;
                     &:hover{
                       background-color: $dropdown-item-hover;
+                      color: white;
                     }
                   }
           

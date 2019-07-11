@@ -8,11 +8,14 @@
     .label{
         display: block;
         font-size: 12px; 
+        margin-bottom: 6px;
+    }
+    .error-message{
+        background-color: $app-error-background;
+        border: 1px solid $app-error-border-color;
     }
 
-
     input{
-        margin-top: 6px;
         border: 1px solid $app-gray;
         &:focus{
             outline: none;
@@ -23,5 +26,12 @@
         }
         padding: 10px;
         font-size: 15px;
+    }
+    .error{
+        font-size: 11px;
+        margin-top: 3px;
+        color: red;
+        display: block;
+        height: 11px;
     }
 }

@@ -2,13 +2,16 @@
     <div class="input" *ngIf="!isDropDown">
         <span class="label">{{label}}</span>
         <input type="{{type}}" [(ngModel)]="text" [ngClass]="{'error-message':errorMessage, 'error-message-end':!errorMessage}" placeholder="{{placeholder}}" (keyup)="propagateChangeToParent()" />
+        <span class="error">{{errorMessage}}</span>
     </div>
     <div class="input" *ngIf="isDropDown">
+        <span class="label">{{label}}</span>
         <p-dropdown  
         [options]="inputType" 
         [(ngModel)]="text"  
         (onChange)="propagateChangeToParent()"
         [autoWidth]="false">
         </p-dropdown>
+        <span class="error">{{errorMessage}}</span>
     </div>
 </div>

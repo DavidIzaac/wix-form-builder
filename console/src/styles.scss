@@ -1,6 +1,7 @@
     
 @import "variables";
 
+
 html,body{
     margin:0;
     height:100%;
@@ -32,5 +33,40 @@ span,a,input,small,p{
     }
     &:active{
         background-color: $app-color
+    }
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    .label{
+        display: block;
+        font-size: 12px; 
+        margin-bottom: 6px;
+    }
+    .error-message{
+        background-color: $app-error-background;
+        border: 1px solid $app-error-border-color;
+    }
+
+    input{
+        border: 1px solid $app-gray;
+        &:focus{
+            outline: none;
+            border: 1px solid $app-color;
+        }
+        &::placeholder{
+            font-family: $app-font-family;
+        }
+        padding: 10px;
+        font-size: 15px;
+        width: 95%;
+    }
+    .error{
+        font-size: 11px;
+        margin-top: 3px;
+        color: red;
+        display: block;
+        height: 11px;
     }
 }

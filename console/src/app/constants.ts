@@ -6,7 +6,8 @@ const TEL = 'tel';
 const NUMBER = 'number';
 
 export const INPUT_TYPE = [
-     { value: TEXT, label: 'Text' },
+   {label:"Select Input Type",value:null},
+   { value: TEXT, label: 'Text' },
     { value: COLOR, label: 'Color' },
     { value: DATE, label: 'Date' },
     { value: EMAIL, label: 'Email' },

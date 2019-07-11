@@ -3,53 +3,70 @@
       <div class="create-field">
           <div class="form-field">
               <div class="content">
-                  <app-input class="input-element"
-                  [label]="'Enter a field label.'" 
-                    [placeholder]="'Field Label'" 
-                    [(ngModel)] = "field.fieldLabel"
-                    [type]="'text'">
-                  </app-input>
-    
-                  <app-input class="input-element"
-                  [label]="'Enter an input Name.'" 
-                    [placeholder]="'Input Name'" 
-                    [(ngModel)] = "field.inputName"
-                    [type]="'text'">
-                  </app-input>
-    
-                  <app-input class="input-element"
-                  [label]="'Enter an input type'" 
-                    [placeholder]="'Input type'" 
-                    [(ngModel)] = "field.inputType"
-                    [isDropDown]="true"
-                    [type]="'text'">
-                  </app-input>
+
+                  <div class="input input-element" >
+                      <span class="label">Enter a field label.</span>
+                      <input 
+                      [(ngModel)]="field.fieldLabel" 
+                      [ngClass]="{'error-message':errorMessage && !field.fieldLabel }" 
+                      placeholder="Field Label" />
+                      <span class="error" *ngIf="!field.fieldLabel">{{errorMessage}}</span>
+                  </div>
+
+                  <div class="input input-element" >
+                      <span class="label">Enter Input Name.</span>
+                      <input [(ngModel)]="field.inputName"
+                       [ngClass]="{'error-message':errorMessage && !field.inputName}" 
+                       placeholder="Field Label" />
+                      <span class="error" *ngIf="!field.inputName" >{{errorMessage}}</span>
+                  </div>
+
+                  <div class="input input-element">
+                      <span class="label">Select Input Type</span>
+                      <p-dropdown  
+                      [options]="inputType" 
+                      [(ngModel)]="field.inputType"  
+                      [autoWidth]="false">
+                      </p-dropdown>
+                      <span class="error" *ngIf="!field.inputType" >{{errorMessage}}</span>
+                  </div>
+
                 </div>
           </div>
-          
+          <div class="add-field">
+              <a (click)="addField()" class="form-button">
+                  <span>
+                     Add Field
+                  </span>
+                </a>
+          </div>
       </div>
       <div class="field-list">
         <div class="header">
           <span>Field List</span>
         </div>
-        <div class="content" *ngFor="let field of form.fields">
+        <div class="content" *ngFor="let field of form.fields;let i=index">
           <span>{{field.inputName}}</span>
+          <i class="material-icons hover" (click)="deleteField(i)">delete_outlined</i>
         </div>
       </div>
   </div>
   <div class="create">
-    <div class="form-name">
-        <app-input 
-        [label]="'Enter Form Name'" 
-          [placeholder]="'Task Feedback'" 
-          [(ngModel)] = "form.name"
-          [type]="'text'">
-        </app-input>
+    <div class="content">
+        <div class="form-name">
+            <div class="input input-element" >
+                <span class="label">Enter Form Name</span>
+                <input type="field.inputType" [(ngModel)]="form.name"
+                 [ngClass]="{'error-message':formNameError && !form.name, 'error-message-end':!errorMessage}" 
+                 placeholder="Task Feedback" />
+                <span class="error" [hidden]="form.name" >{{formNameError}}</span>
+            </div>
+        </div>
+          <a (click)="createForm()" class="form-button">
+            <span>
+               Create Form
+            </span>
+          </a>
     </div>
-      <a (click)="createForm()" class="form-button">
-        <span>
-           Create
-        </span>
-      </a>
   </div>
 </div>

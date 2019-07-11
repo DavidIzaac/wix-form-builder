@@ -11,7 +11,6 @@ import {tap} from 'rxjs/operators';
 export class FormListComponent implements OnInit {
 
   constructor(private formService:FormsService) { }
-  readonly tablePageSize = 15;
   forms:Forms[];
   resultCount: number = 0;
 

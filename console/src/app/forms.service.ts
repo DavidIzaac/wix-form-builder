@@ -11,11 +11,19 @@ export class FormsService {
   }
 
   list(){
-      return this.http.get<any[]>(`${environment.serverUrl}/api/forms/`)
+      return this.http.get<Forms[]>(`${environment.serverUrl}/api/forms/`)
   }
 
   create(form){
-    return this.http.post<any[]>(`${environment.serverUrl}/api/forms/`, form)
+    return this.http.post<Forms[]>(`${environment.serverUrl}/api/forms/`, form)
+  }
+
+  getFormById(formId){
+    return this.http.get<Forms>(`${environment.serverUrl}/api/forms/${formId}`)
+  }
+
+  submitForm(formId,submissions){
+    return this.http.post<any>(`${environment.serverUrl}/api/forms/${formId}`,{submissions:submissions});
   }
   
 }

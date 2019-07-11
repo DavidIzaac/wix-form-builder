@@ -1,0 +1,10 @@
+.main{
+    display: flex;
+    justify-content: center;
+    .main-wrapper{
+        width: 50%;
+        .submit{
+            margin-top: 20px;
+        }
+    }
+}
