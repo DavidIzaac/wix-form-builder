@@ -1,0 +1,48 @@
+<div>
+  <div class="create-form">
+      <a routerLink="/create-form" class="form-button">
+        <span>
+            Add a New Form
+        </span>
+      </a>
+  </div>
+  <div class="table-wrapper">
+      <p-dataTable [value]="forms" [lazy]="true" [rows]="tablePageSize" [paginator]="true" [totalRecords]="resultCount">
+        <p-column field="Form Id" header="Form Id" [sortable]="true">
+            <ng-template let-col let-form="rowData" pTemplate="body">
+              <div class="name-wrapper">
+                <a>{{ form._id }}</a>
+              </div>
+            </ng-template>
+        </p-column>
+        <p-column field="Form Name" header="Form Name" [sortable]="true">
+          <ng-template let-col let-form="rowData" pTemplate="body">
+            <div class="name-wrapper">
+              <a>{{ form.name }}</a>
+            </div>
+          </ng-template>
+        </p-column>
+        <p-column field="#Submissions" header="#Submissions" [sortable]="true">
+          <ng-template let-col let-form="rowData" pTemplate="body">
+            <div class="name-wrapper">
+              <a>{{ form.submissions.length }}</a>
+            </div>
+          </ng-template>
+        </p-column>
+        <p-column field="Submit Page" header="Submit Page" [sortable]="true">
+          <ng-template let-col let-form="rowData" pTemplate="body">
+            <div class="name-wrapper">
+              <a [routerLink]="form._id/submit">View</a>
+            </div>
+          </ng-template>
+        </p-column>
+        <p-column field="Submission Page" header="Submission Page" [sortable]="true">
+            <ng-template let-col let-form="rowData" pTemplate="body">
+              <div class="name-wrapper">
+                <a [routerLink]="form._id">View</a>
+              </div>
+            </ng-template>
+          </p-column>
+      </p-dataTable>
+    </div>
+</div>

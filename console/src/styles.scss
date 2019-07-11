@@ -1,0 +1,36 @@
+    
+@import "variables";
+
+html,body{
+    margin:0;
+    height:100%;
+}
+
+span,a,input,small,p{
+    font-family: $app-font-family;
+    opacity: 0.7;
+}
+
+.form-button{
+    background-color: $app-color;
+    border-radius: 22px;
+    height: 42px;
+    align-items: center;
+    padding: 0px 20px;
+    cursor: pointer;
+    display: inline-flex;
+    opacity: 1;
+    text-decoration: none;
+    span{
+        opacity: 1;
+        color: white;
+        font-size: 17px;
+    }
+    &:hover{
+        background-color: $app-color-hover;
+
+    }
+    &:active{
+        background-color: $app-color
+    }
+}

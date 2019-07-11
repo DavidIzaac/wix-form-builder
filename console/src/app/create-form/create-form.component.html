@@ -1,0 +1,55 @@
+<div class="main">
+  <div class="form">
+      <div class="create-field">
+          <div class="form-field">
+              <div class="content">
+                  <app-input class="input-element"
+                  [label]="'Enter a field label.'" 
+                    [placeholder]="'Field Label'" 
+                    [(ngModel)] = "field.fieldLabel"
+                    [type]="'text'">
+                  </app-input>
+    
+                  <app-input class="input-element"
+                  [label]="'Enter an input Name.'" 
+                    [placeholder]="'Input Name'" 
+                    [(ngModel)] = "field.inputName"
+                    [type]="'text'">
+                  </app-input>
+    
+                  <app-input class="input-element"
+                  [label]="'Enter an input type'" 
+                    [placeholder]="'Input type'" 
+                    [(ngModel)] = "field.inputType"
+                    [isDropDown]="true"
+                    [type]="'text'">
+                  </app-input>
+                </div>
+          </div>
+          
+      </div>
+      <div class="field-list">
+        <div class="header">
+          <span>Field List</span>
+        </div>
+        <div class="content" *ngFor="let field of form.fields">
+          <span>{{field.inputName}}</span>
+        </div>
+      </div>
+  </div>
+  <div class="create">
+    <div class="form-name">
+        <app-input 
+        [label]="'Enter Form Name'" 
+          [placeholder]="'Task Feedback'" 
+          [(ngModel)] = "form.name"
+          [type]="'text'">
+        </app-input>
+    </div>
+      <a (click)="createForm()" class="form-button">
+        <span>
+           Create
+        </span>
+      </a>
+  </div>
+</div>
